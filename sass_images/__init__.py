@@ -82,7 +82,7 @@ def generate_sass_from_dir(dir, output, threshold, urlprefix, prolog=True):
     if prolog:
         output.write(PROLOG.format(dir=dir, threshold=threshold, prefix=urlprefix))
     for root, dirs, files in os.walk(dir):
-        for name in files:
+        for name in sorted(files):
             path = os.path.join(root, name)
             variable = get_variable_from_path(dir, path)
             try:
